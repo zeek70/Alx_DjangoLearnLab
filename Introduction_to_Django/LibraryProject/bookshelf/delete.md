@@ -1,11 +1,9 @@
 from bookshelf.models import Book
 
-book = Book.objects.create(
-    title="1984",
-    author="George Orwell",
-    publication_year=1949
-)
+book = Book.objects.get(title="Nineteen Eighty-Four")
+book.delete()
+# Output: (1, {'bookshelf.Book': 1})
 
-print(book)
-# Output: <Book: Book object (1)>
+print(Book.objects.all())
+# Output: <QuerySet []>
 
